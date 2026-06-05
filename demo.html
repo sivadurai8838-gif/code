@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Devara — Computer Science student and aspiring filmmaker portfolio with cinematic design, projects, skills, education, and contact information." />
+  <meta name="theme-color" content="#0b0b0f" />
+  <title>Devara | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    :root{
+      --bg:#08080c; --bg2:#12131a; --card:rgba(255,255,255,.06); --card2:rgba(255,255,255,.08);
+      --text:#f5f1e8; --muted:#c9c1ae; --gold:#d9b45a; --gold2:#f2d98b; --line:rgba(255,255,255,.12);
+      --shadow:0 24px 80px rgba(0,0,0,.45); --radius:24px; --max:1180px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:
+      radial-gradient(circle at top left, rgba(217,180,90,.18), transparent 28%),
+      radial-gradient(circle at top right, rgba(242,217,139,.10), transparent 24%),
+      linear-gradient(180deg,var(--bg),var(--bg2));overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;background:
+      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:72px 72px;mask-image:linear-gradient(180deg,rgba(0,0,0,.65),transparent 95%);pointer-events:none;opacity:.35}
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);background:rgba(8,8,12,.62);border-bottom:1px solid var(--line)}
+    .navin{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .badge{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#7b5f1f);color:#16120a;box-shadow:0 0 0 4px rgba(217,180,90,.12)}
+    .menu{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+    .menu a{color:var(--muted);font-size:.96rem}
+    .menu a:hover{color:var(--gold2)}
+    .hero{padding:72px 0 28px;position:relative}
+    .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center}
+    .panel{background:linear-gradient(180deg,var(--card),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .hero-copy{padding:38px}
+    .kicker{color:var(--gold2);text-transform:uppercase;letter-spacing:.24em;font-size:.8rem}
+    h1,h2,h3,p{margin:0} h1{font-size:clamp(2.6rem,6vw,5rem);line-height:.95;margin-top:14px}
+    .tag{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--muted);margin-top:18px;max-width:58ch}
+    .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+    .btn{padding:14px 20px;border-radius:999px;border:1px solid var(--line);font-weight:600;transition:.25s ease;display:inline-flex;align-items:center;gap:10px}
+    .btn.primary{background:linear-gradient(135deg,var(--gold),#8c6d23);color:#120f09;border-color:transparent}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(0,0,0,.25)}
+    .hero-art{min-height:460px;position:relative;overflow:hidden}
+    .hero-art::before,.hero-art::after{content:"";position:absolute;border-radius:50%;filter:blur(10px)}
+    .hero-art::before{width:220px;height:220px;background:radial-gradient(circle, rgba(242,217,139,.34), transparent 65%);top:40px;right:30px;animation:float 8s ease-in-out infinite}
+    .hero-art::after{width:300px;height:300px;background:radial-gradient(circle, rgba(217,180,90,.18), transparent 70%);bottom:-70px;left:-40px;animation:float 10s ease-in-out infinite reverse}
+    .film{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:end;background:
+      linear-gradient(180deg, transparent 20%, rgba(0,0,0,.58)),
+      url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80') center/cover;}
+    .overlay{background:rgba(10,10,14,.46);padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:20px;backdrop-filter:blur(12px)}
+    .quote{font-size:1.12rem;line-height:1.7;color:#f6efd9;border-left:3px solid var(--gold);padding-left:16px}
+    section{padding:26px 0} .section-title{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:18px}
+    .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{grid-column:span 4;padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,var(--card),rgba(255,255,255,.03));border-radius:22px;backdrop-filter:blur(18px);transition:.25s ease}
+    .card:hover{transform:translateY(-6px);border-color:rgba(242,217,139,.4)}
+    .card p,.muted{color:var(--muted)} .pill{display:inline-block;margin:8px 8px 0 0;padding:8px 12px;border-radius:999px;background:rgba(217,180,90,.12);border:1px solid rgba(217,180,90,.2);color:#f3e1aa;font-size:.92rem}
+    .list{display:grid;gap:12px} .item{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+    .contact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px} .contact{padding:18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+    .footer{padding:34px 0 50px;color:var(--muted);text-align:center}
+    .reveal{opacity:0;transform:translateY(18px);transition:all .7s ease} .reveal.show{opacity:1;transform:none}
+    @keyframes float{50%{transform:translateY(-14px) scale(1.03)}}
+    @media (max-width: 960px){.grid,.card,.contact-grid{grid-template-columns:1fr}.card{grid-column:span 12}.hero{padding-top:32px}.hero-art{min-height:380px}}
+    @media (max-width: 640px){.menu{display:none}.hero-copy{padding:24px}.navin{min-height:68px}.wrap{width:min(var(--max),calc(100% - 22px))} h1{font-size:clamp(2.3rem,14vw,4rem)}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap navin">
+      <div class="brand"><div class="badge">D</div><span>Devara</span></div>
+      <nav class="menu" aria-label="Primary">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="grid">
+        <div class="panel hero-copy reveal">
+          <div class="kicker">Computer Science Student • Aspiring Filmmaker</div>
+          <h1>Devara</h1>
+          <p class="tag">Cinema is an Emotion. Technology is the Tool.</p>
+          <p class="muted" style="margin-top:16px;max-width:62ch">I am passionate about cinema and technology. I believe cinema is more than entertainment—it’s an emotion and a force that can change lives.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div class="panel hero-art reveal" aria-label="Cinematic background visual">
+          <div class="film">
+            <div class="overlay">
+              <p class="quote">“Cinema is not just a hobby. It's an emotion that gives hope and inspires change.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="wrap reveal">
+      <h2 class="section-title">About Me</h2>
+      <div class="panel" style="padding:26px">
+        <p class="muted">I am a Computer Science student who loves building digital experiences while staying deeply connected to storytelling and filmmaking. My goal is to merge creativity with technology to create meaningful projects that inform, inspire, and entertain.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="wrap reveal">
+      <h2 class="section-title">Skills</h2>
+      <div class="cards">
+        <article class="card"><h3>Technical</h3><p><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span></p></article>
+        <article class="card"><h3>Productivity</h3><p><span class="pill">MS Word</span><span class="pill">Project Documentation</span></p></article>
+        <article class="card"><h3>Core Strengths</h3><p><span class="pill">Problem Solving</span><span class="pill">Communication Skills</span><span class="pill">Content Creation</span></p></article>
+      </div>
+    </section>
+
+    <section id="projects" class="wrap reveal">
+      <h2 class="section-title">Projects</h2>
+      <div class="cards">
+        <article class="card"><h3>FrameFlow</h3><p>Portfolio and project showcase for creatives with smooth transitions and responsive layouts.</p><p class="muted" style="margin-top:10px">Technologies: HTML, CSS, JavaScript</p><p style="margin-top:14px"><a href="#" class="pill">GitHub Link</a><a href="#" class="pill">Live Demo Link</a></p></article>
+        <article class="card"><h3>Cinema Notes</h3><p>A note-taking and script idea organizer designed for filmmakers and storytellers.</p><p class="muted" style="margin-top:10px">Technologies: HTML, CSS, JavaScript</p><p style="margin-top:14px"><a href="#" class="pill">GitHub Link</a><a href="#" class="pill">Live Demo Link</a></p></article>
+        <article class="card"><h3>TechLens Blog</h3><p>A clean blog interface for sharing thoughts on technology, learning, and short-form content.</p><p class="muted" style="margin-top:10px">Technologies: HTML, CSS, JavaScript</p><p style="margin-top:14px"><a href="#" class="pill">GitHub Link</a><a href="#" class="pill">Live Demo Link</a></p></article>
+      </div>
+    </section>
+
+    <section id="education" class="wrap reveal">
+      <h2 class="section-title">Education</h2>
+      <div class="list">
+        <div class="item"><h3>Bachelor of Computer Science</h3><p class="muted">College details can be added here along with your department, year of study, and current GPA.</p></div>
+        <div class="item"><h3>Academic Achievements</h3><p class="muted">Add achievements, certifications, workshop participation, hackathons, or film-related accomplishments.</p></div>
+      </div>
+    </section>
+
+    <section class="wrap reveal">
+      <h2 class="section-title">Interests</h2>
+      <div class="cards">
+        <article class="card"><h3>Cinema & Filmmaking</h3></article>
+        <article class="card"><h3>Storytelling</h3></article>
+        <article class="card"><h3>Photography</h3></article>
+        <article class="card"><h3>Technology</h3></article>
+        <article class="card"><h3>Learning New Skills</h3></article>
+        <article class="card"><h3>Creative Direction</h3></article>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap reveal">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact"><strong>Email</strong><p class="muted">devara@example.com</p></div>
+        <div class="contact"><strong>Phone</strong><p class="muted">+91 98765 43210</p></div>
+        <div class="contact"><strong>LinkedIn</strong><p class="muted">linkedin.com/in/devara</p></div>
+        <div class="contact"><strong>GitHub</strong><p class="muted">github.com/devara</p></div>
+        <div class="contact"><strong>Instagram</strong><p class="muted">instagram.com/devara</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p>Designed with a cinematic dark theme, glassmorphism, and responsive motion for all devices.</p>
+  </footer>
+
+  <script>
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); }), {threshold:.14});
+    els.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
